@@ -1117,6 +1117,7 @@ button {
 	}
 
 	/* This sets the image the overlay on the background */
+	/* 
 	#bg:before {
 		-moz-transition: background-color 2.5s ease-in-out;
 		-webkit-transition: background-color 2.5s ease-in-out;
@@ -1130,11 +1131,13 @@ button {
 		background-size: auto, 256px 256px;
 		background-position: center, center;
 		background-repeat: no-repeat, repeat;
-		/* This sets the order of rendering. This will sit on top of all elements with z-index < 2 */
+		/* This sets the order of rendering. This will sit on top of all elements with z-index < 2 /
 		z-index: 2;
-	}
+	} 
+	*/
 
 	/* This sets the content of the actual background */
+	/*
 	#bg:after {
 		-moz-transform: scale(1.125);
 		-webkit-transform: scale(1.125);
@@ -1144,14 +1147,15 @@ button {
 		-webkit-transition: -webkit-transform 0.325s ease-in-out, -webkit-filter 0.325s ease-in-out;
 		-ms-transition: -ms-transform 0.325s ease-in-out, -ms-filter 0.325s ease-in-out;
 		transition: transform 0.325s ease-in-out, filter 0.325s ease-in-out;
-		/* We can change the background image here. */
+		/* We can change the background image here. /
 		background-image: url("../../images/bg.jpg");
 		background-position: center;
 		background-size: cover;
 		background-repeat: no-repeat;
-		/* This sets the order of rendering. This will sit behind all elements with z-index > 1 */
+		/* This sets the order of rendering. This will sit behind all elements with z-index > 1 /
 		z-index: 1;
 	}
+	*/
 
 	body.is-article-visible #bg:after {
 		-moz-transform: scale(1.0825);
