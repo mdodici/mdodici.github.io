@@ -1183,10 +1183,10 @@ button {
 	-webkit-flex-direction: column;
 	-ms-flex-direction: column;
 	flex-direction: column;
-	-moz-align-items: center;
-	-webkit-align-items: center;
-	-ms-align-items: center;
-	align-items: center;
+	-moz-align-items: left;
+	-webkit-align-items: left;
+	-ms-align-items: left;
+	align-items: left;
 	-moz-justify-content: space-between;
 	-webkit-justify-content: space-between;
 	-ms-justify-content: space-between;
@@ -1194,7 +1194,7 @@ button {
 	position: relative;
 	min-height: 100vh;
 	width: 100%;
-	padding: 4rem 2rem;
+	padding: 2rem 2rem;
 	z-index: 3;
 }
 
