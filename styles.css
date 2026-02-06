@@ -204,7 +204,6 @@ h3 {
     margin-left: calc(var(--margin-calc) - 40px);
     height: 100vh;
     border-right: 1px solid var(--border);
-    border-left: 1px solid var(--border);
     border-bottom: none;
     position: sticky;
     top: 0;
@@ -234,13 +233,13 @@ h3 {
 
   .header-photo {
     display: block;
-    width: 120px;
-    height: 120px;
+    width: 200px;
+    height: 200px;
     border-radius: 50%;
     object-fit: cover;
     margin-top: 8px;
     margin-bottom: 8px;
-    margin-left: 120px;
+    margin-left: 40px;
   }
 
   main {
