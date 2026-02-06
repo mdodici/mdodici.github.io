@@ -159,21 +159,13 @@ h3 {
   margin: 0 0 8px 0;
 }
 
-.card-toggle {
-  flex-shrink: 0;
-  padding: 4px 10px;
-  font-size: 0.875rem;
-  font-weight: 600;
-  color: var(--accent);
-  background: transparent;
-  border: 1px solid var(--accent);
-  border-radius: 6px;
+.card-expandable {
   cursor: pointer;
 }
 
-.card-toggle:hover,
-.card-toggle:focus-visible {
-  background: rgba(47, 95, 179, 0.08);
+.card-expandable:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
 }
 
 .card-body {
@@ -250,7 +242,7 @@ h3 {
     margin-bottom: 8px;
     margin-left: 120px;
   }
-  
+
   main {
     flex: 1;
     max-width: 800px;
@@ -301,7 +293,7 @@ h3 {
   .header-photo {
     display: none;
   }
-  
+
   .site-header.header-compact {
     padding: 12px 0;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
