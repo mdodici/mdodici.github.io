@@ -64,14 +64,13 @@
       <section id="research" class="section section-alt">
         <div class="container">
           <h2>Research</h2>
-          <article class="card card-expandable card-collapsed">
+          <p class="meta"> <em> Click on a card to show more details. </em> </p>
+          <article class="card card-expandable card-collapsed" role="button" tabindex="0" aria-expanded="false" aria-controls="card-body-1">
             <div class="card-header-row">
-              <button type="button" class="card-toggle" aria-expanded="false" aria-controls="card-body-1">Expand</button>
               <h3>Dynamical evolution of stellar binaries in the centers of galaxies</h3>
             </div>
             <p class="meta">
-              M. Dodici, S. Tremaine, &amp; Y. Wu (in prep). Check back in mid-2025, or
-              let me know via email if you'd like a copy of the preprint.
+              M. Dodici, S. Tremaine, &amp; Y. Wu (2025). <a href="https://arxiv.org/abs/2511.02905" target="_blank">arXiv:2511.02905.</a>
             </p>
             <div id="card-body-1" class="card-body">
             <p>
@@ -100,15 +99,12 @@
             </div>
           </article>
 
-          <article class="card card-expandable card-collapsed">
+          <article class="card card-expandable card-collapsed" role="button" tabindex="0" aria-expanded="false" aria-controls="card-body-2">
             <div class="card-header-row">
-              <button type="button" class="card-toggle" aria-expanded="false" aria-controls="card-body-2">Expand</button>
               <h3>A scale-free study of binary formation via dynamical friction</h3>
             </div>
             <p class="meta">
-              M. Dodici &amp; S. Tremaine (2024). Studying Binary Formation under
-              Dynamical Friction Using Hill's Problem. The Astrophysical Journal,
-              972, 2, 193.
+              M. Dodici &amp; S. Tremaine (2024). <a href="https://ui.adsabs.harvard.edu/abs/2024ApJ...972..193D/abstract" target="_blank">The Astrophysical Journal, 972, 2, 193.</a>
             </p>
             <div id="card-body-2" class="card-body">
             <p>
@@ -244,18 +240,22 @@
         window.addEventListener('resize', updateHeaderCompact);
         updateHeaderCompact();
       })();
-      document.querySelectorAll('.card-expandable .card-toggle').forEach(function (btn) {
-        btn.addEventListener('click', function () {
-          var card = this.closest('.card-expandable');
+      document.querySelectorAll('.card-expandable').forEach(function (card) {
+        function toggle() {
           var isCollapsed = card.classList.contains('card-collapsed');
           if (isCollapsed) {
             card.classList.remove('card-collapsed');
-            this.textContent = 'Hide';
-            this.setAttribute('aria-expanded', 'true');
+            card.setAttribute('aria-expanded', 'true');
           } else {
             card.classList.add('card-collapsed');
-            this.textContent = 'Expand';
-            this.setAttribute('aria-expanded', 'false');
+            card.setAttribute('aria-expanded', 'false');
+          }
+        }
+        card.addEventListener('click', toggle);
+        card.addEventListener('keydown', function (e) {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            toggle();
           }
         });
       });
