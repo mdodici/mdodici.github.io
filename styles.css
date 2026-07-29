@@ -19,6 +19,9 @@
 
 html {
   scroll-behavior: smooth;
+  /* "proximity", not "mandatory": sections taller than the viewport (Research)
+     would otherwise fight the user or strand content between snap points. */
+  scroll-snap-type: y proximity;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -118,6 +121,7 @@ h1 {
      the fold and nav clicks can always bring a section to the top. */
   min-height: 100vh;
   min-height: 100dvh;
+  scroll-snap-align: start;
 }
 
 .section:first-of-type {
@@ -145,15 +149,6 @@ h3 {
   margin: 0 0 28px 0;
 }
 
-.lead-contact {
-  font-size: 1rem;
-  margin-bottom: 12px;
-}
-
-/* Pull the contact line up so it reads as a pair with the line above it. */
-.lead:has(+ .lead-contact) {
-  margin-bottom: 10px;
-}
 
 .meta {
   color: var(--muted);
