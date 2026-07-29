@@ -8,7 +8,7 @@
   --border: #e1e3e8;
   --shadow: 0 12px 30px rgba(21, 28, 40, 0.08);
   --max-width: 800px;
-  --margin-calc: calc((100vw - 1080px) / 2);
+  --margin-calc: max(0px, calc((100vw - 1080px) / 2));
 }
 
 *,
@@ -125,8 +125,20 @@ h3 {
 }
 
 .lead {
-  font-size: 1.1rem;
+  font-size: 1.15rem;
+  line-height: 1.55;
   color: var(--muted);
+  margin: 0 0 28px 0;
+}
+
+.lead-contact {
+  font-size: 1rem;
+  margin-bottom: 12px;
+}
+
+/* Pull the contact line up so it reads as a pair with the line above it. */
+.lead:has(+ .lead-contact) {
+  margin-bottom: 10px;
 }
 
 .meta {
@@ -176,6 +188,46 @@ h3 {
   display: none;
 }
 
+.about-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 24px 36px;
+  margin-top: 24px;
+}
+
+@media (min-width: 520px) {
+  .about-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.about-grid + .lead {
+  margin-top: 36px;
+}
+
+.about-label {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+  margin: 0 0 8px 0;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--border);
+}
+
+.about-list {
+  margin: 0;
+  padding-left: 18px;
+}
+
+.about-list li + li {
+  margin-top: 8px;
+}
+
+.about-list .meta {
+  font-size: 0.9rem;
+}
+
 .button {
   display: inline-block;
   margin-top: 16px;
@@ -201,7 +253,7 @@ h3 {
   .site-header {
     width: 280px;
     flex-shrink: 0;
-    margin-left: calc(var(--margin-calc) - 40px);
+    margin-left: max(0px, calc(var(--margin-calc) - 40px));
     height: 100vh;
     border-right: 1px solid var(--border);
     border-bottom: none;
