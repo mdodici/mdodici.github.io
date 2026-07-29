@@ -11,6 +11,7 @@
   --border: #e1e3e8;
   --shadow: 0 12px 30px rgba(21, 28, 40, 0.08);
   --max-width: 800px;
+  --header-h: 76px;
   --margin-calc: max(0px, calc((100vw - 1080px) / 2));
 }
 
@@ -391,67 +392,65 @@ h3 {
 }
 
 @media (max-width: 1099px) {
+  /* One fixed header state on narrow screens. It deliberately has no
+     scroll-dependent sizing: a header that changes height mid-scroll shifts
+     the page under the reader and can oscillate around its own threshold. */
   .site-header {
     position: sticky;
     top: 0;
     z-index: 100;
-    transition: padding 0.2s ease, box-shadow 0.2s ease;
+    padding: 12px 0;
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.05);
+  }
+
+  .header-content {
+    gap: 0;
   }
 
   .header-title-row {
     display: flex;
     flex-direction: row;
-    align-items: center;
+    align-items: baseline;
     justify-content: space-between;
-    gap: 24px;
+    gap: 16px;
     width: 100%;
+  }
+
+  .site-header h1 {
+    font-size: 1.5rem;
+    margin: 0;
+    flex-shrink: 0;
   }
 
   .header-subtitles {
     text-align: right;
-    flex-shrink: 0;
+    min-width: 0;
   }
 
   .header-subtitles .subtitle {
     margin: 0;
+    font-size: 0.9rem;
+    line-height: 1.3;
   }
 
+  /* Name plus role is enough at this size; the institution is in the CV. */
   .header-subtitles .subtitle + .subtitle {
-    margin-top: 2px;
+    display: none;
   }
 
   .header-photo {
     display: none;
   }
 
-  .site-header.header-compact {
-    padding: 12px 0;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-  }
-
-  .site-header.header-compact .header-content {
-    flex-direction: row;
-    align-items: center;
-    gap: 16px;
-    flex-wrap: wrap;
-  }
-
-  .site-header.header-compact h1 {
-    font-size: 1.5rem;
-    margin: 0;
-  }
-
-  .site-header.header-compact .header-subtitles {
-    display: none;
-  }
-
   .section {
     padding: 36px 0;
     /* Leave room for the sticky header so the fold still lands on a boundary,
-       and keep anchored headings from hiding underneath it. */
-    min-height: calc(100vh - 64px);
-    min-height: calc(100dvh - 64px);
-    scroll-margin-top: 64px;
+       and keep anchored headings from hiding underneath it. --header-h is the
+       tallest the header gets (subtitle wrapped to two lines, ~375px wide);
+       erring high only adds a little breathing room above an anchored heading. */
+    min-height: calc(100vh - var(--header-h));
+    min-height: calc(100dvh - var(--header-h));
+    scroll-margin-top: var(--header-h);
   }
 
   h2 {

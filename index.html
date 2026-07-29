@@ -8,7 +8,7 @@
       name="description"
       content="Personal website for Mark Dodici, astrophysics Ph.D. candidate at the University of Toronto."
     />
-    <link rel="stylesheet" href="styles.css?v=18" />
+    <link rel="stylesheet" href="styles.css?v=20" />
   </head>
   <body>
     <header class="site-header">
@@ -408,20 +408,6 @@
       </section>
     </main>
     <script>
-      (function () {
-        var header = document.querySelector('.site-header');
-        var compactThreshold = 60;
-        function updateHeaderCompact() {
-          if (window.innerWidth < 1100) {
-            header.classList.toggle('header-compact', window.scrollY > compactThreshold);
-          } else {
-            header.classList.remove('header-compact');
-          }
-        }
-        window.addEventListener('scroll', updateHeaderCompact, { passive: true });
-        window.addEventListener('resize', updateHeaderCompact);
-        updateHeaderCompact();
-      })();
       document.querySelectorAll('.card-expandable').forEach(function (card) {
         function toggle() {
           var isCollapsed = card.classList.contains('card-collapsed');
