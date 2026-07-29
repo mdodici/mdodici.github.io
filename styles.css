@@ -17,6 +17,16 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
 body {
   margin: 0;
   font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
@@ -104,6 +114,10 @@ h1 {
 .section {
   padding: 48px 0;
   border-top: 1px solid var(--border);
+  /* Each section fills at least one screen, so the next one starts just below
+     the fold and nav clicks can always bring a section to the top. */
+  min-height: 100vh;
+  min-height: 100dvh;
 }
 
 .section:first-of-type {
@@ -368,6 +382,11 @@ h3 {
 
   .section {
     padding: 36px 0;
+    /* Leave room for the sticky header so the fold still lands on a boundary,
+       and keep anchored headings from hiding underneath it. */
+    min-height: calc(100vh - 64px);
+    min-height: calc(100dvh - 64px);
+    scroll-margin-top: 64px;
   }
 
   h2 {
