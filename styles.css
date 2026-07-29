@@ -5,6 +5,9 @@
   --text: #1e1f24;
   --muted: #5c5f66;
   --accent: #2f5fb3;
+  --accent-dark: #244a8f;
+  --accent-pale: #eaf1fb;
+  --accent-pale-hover: #dbe7f8;
   --border: #e1e3e8;
   --shadow: 0 12px 30px rgba(21, 28, 40, 0.08);
   --max-width: 800px;
@@ -128,6 +131,67 @@ h1 {
   border-top: none;
 }
 
+/* Let each scroll cue sit at the bottom of its section, however tall the
+   content above it happens to be: the section is a flex column and the cue
+   takes margin-top: auto. The cue is a sibling of .container, not a child, so
+   .container keeps normal block layout and margin collapsing. */
+.section {
+  display: flex;
+  flex-direction: column;
+}
+
+.scroll-cue {
+  margin-top: auto;
+  padding-top: 48px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  color: var(--muted);
+  font-size: 0.9rem;
+  letter-spacing: 0.04em;
+}
+
+.scroll-cue:hover,
+.scroll-cue:focus-visible {
+  color: var(--text);
+  text-decoration: none;
+}
+
+.scroll-cue-arrow {
+  animation: scroll-cue-bob 2.4s ease-in-out infinite;
+}
+
+.scroll-cue-up .scroll-cue-arrow {
+  animation-name: scroll-cue-bob-up;
+}
+
+@keyframes scroll-cue-bob {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(5px);
+  }
+}
+
+@keyframes scroll-cue-bob-up {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-cue-arrow {
+    animation: none;
+  }
+}
+
 .section-alt {
   background: transparent;
 }
@@ -238,19 +302,25 @@ h3 {
 }
 
 .button {
-  display: inline-block;
-  margin-top: 16px;
-  padding: 10px 18px;
+  display: block;
+  width: 33%;
+  /* auto side margins split the leftover space, centering at any width */
+  margin: 16px auto 0;
+  padding: 12px 18px;
   border-radius: 999px;
-  background: var(--accent);
-  color: #fff;
+  border: 3.5px solid var(--accent);
+  background: var(--accent-pale);
+  color: var(--accent);
   font-weight: 600;
+  text-align: center;
 }
 
 .button:hover,
 .button:focus-visible {
   text-decoration: none;
-  background: #244a8f;
+  background: var(--accent-pale-hover);
+  border-color: var(--accent-dark);
+  color: var(--accent-dark);
 }
 
 @media (min-width: 1080px) {
