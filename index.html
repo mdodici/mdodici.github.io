@@ -8,18 +8,38 @@
       name="description"
       content="Personal website for Mark Dodici, astrophysics Ph.D. candidate at the University of Toronto."
     />
-    <link rel="stylesheet" href="styles.css?v=20" />
+    <link rel="stylesheet" href="styles.css?v=26" />
   </head>
   <body>
     <header class="site-header">
       <div class="container header-content">
         <div class="header-title-row">
           <h1>Mark Dodici</h1>
-          <img class="header-photo" src="headshot_circle.png" alt="" />
+          <img class="header-photo" src="outdoor-headshot-circle.png" alt="" />
           <div class="header-subtitles">
             <p class="subtitle">Astrophysics Ph.D. Candidate</p>
             <p class="subtitle">University of Toronto</p>
           </div>
+          <details class="nav-dropdown">
+            <summary aria-label="Menu">
+              <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false">
+                <path
+                  d="M4 7h16M4 12h16M4 17h16"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                />
+              </svg>
+            </summary>
+            <nav class="nav-links" aria-label="Sections">
+              <a href="#about">About</a>
+              <a href="#research">Research</a>
+              <a href="#teaching">Teaching</a>
+              <a href="#academics">Academics</a>
+              <a href="#contact">Contact</a>
+            </nav>
+          </details>
         </div>
         <nav class="site-nav" aria-label="Primary">
           <div class="nav-desktop">
@@ -36,62 +56,79 @@
     <main>
       <section id="about" class="section">
         <div class="container">
+          <img
+            class="about-photo"
+            src="outdoor-headshot-720.jpg"
+            alt="Mark Dodici"
+            width="240"
+            height="240"
+          />
           <p class="lead">
-            I'm working toward my Ph.D. in
+            I'm a fifth- and final-year Ph.D. candidate in
             Astronomy &amp; Astrophysics at the University of Toronto. In my thesis, I
             study the evolution of stellar binaries orbiting supermassive black holes,
-            along with other fun problems in three-body dynamics.
+            along with a range of other fun problems in three-body dynamics.
           </p>
           <div class="about-grid">
-            <div class="about-group">
-              <h3 class="about-label">Education</h3>
-              <ul class="about-list">
-                <li>
-                  <b>Ph.D., Astronomy &amp; Astrophysics</b><br />
-                  University of Toronto (UofT), expected 2027<br />
-                  <span class="meta">Advisors: Yanqin Wu &amp; Scott Tremaine (CITA, IAS)</span>
-                </li>
-                <li>
-                  <b>A.B., Astrophysical Sciences</b><br />
-                  Princeton University, 2022
-                </li>
-              </ul>
-            </div>
+            <!-- Two column wrappers: in single-column view they are
+                 display: contents and CSS restores the row-by-row order. -->
+            <div class="about-col">
+              <div class="about-group">
+                <h3 class="about-label"><button class="about-toggle" type="button"><span class="about-chevron" aria-hidden="true"></span>Education</button></h3>
+                <ul class="about-list">
+                  <li>
+                    <b>Ph.D., Astronomy &amp; Astrophysics</b><br />
+                    University of Toronto (UofT), expected 2027<br />
+                    <span class="meta">Advisors: Yanqin Wu &amp; Scott Tremaine</span>
+                  </li>
+                  <li>
+                    <b>A.B., Astrophysical Sciences</b><br />
+                    Princeton University, 2022
+                  </li>
+                </ul>
+              </div>
 
-            <div class="about-group">
-              <h3 class="about-label">Research interests</h3>
-              <ul class="about-list">
-                <li>Few-body dynamics in dense stellar systems</li>
-                <li>Galactic nuclei and massive black holes</li>
-                <li>Stellar tides and tidal dissipation</li>
-                <li>Binary and triple star populations</li>
-              </ul>
+              <div class="about-group is-collapsed">
+                <h3 class="about-label"><button class="about-toggle" type="button"><span class="about-chevron" aria-hidden="true"></span>Select Awards and Honors</button></h3>
+                <ul class="about-list">
+                  <li> <a href="https://www.astro.utoronto.ca/2026-jui-lin-allen-yen-award-recipients-mark-dodici-and-nolan-koblischke/">Jui Lin (Allen) Yen Award</a>, 2026</li>
+                  <li> <a href="https://dda.aas.org/awards/duncombe">Duncombe Student Research Award</a>, 2026</li>
+                  <li> UofT Lachlan Gilchrist Fellowship, 2026</li>
+                </ul>
+              </div>
             </div>
+            <div class="about-col">
+              <div class="about-group is-collapsed">
+                <h3 class="about-label"><button class="about-toggle" type="button"><span class="about-chevron" aria-hidden="true"></span>Research interests</button></h3>
+                <ul class="about-list">
+                  <li>Galactic nuclei and massive black holes</li>
+                  <li>Tidal disruption events and other transients</li>
+                  <li>Stellar tides and tidal dissipation</li>
+                  <li>Binary and triple star populations</li>
+                </ul>
+              </div>
 
-            <div class="about-group">
-              <h3 class="about-label">Select Awards and Honors</h3>
-              <ul class="about-list">
-                <li> <a href="https://www.astro.utoronto.ca/2026-jui-lin-allen-yen-award-recipients-mark-dodici-and-nolan-koblischke/">Jui Lin (Allen) Yen Award</a>, 2026</li>
-                <li> <a href="https://dda.aas.org/awards/duncombe">Duncombe Student Research Award</a>, 2026</li>
-                <li> UofT Lachlan Gilchrist Fellowship, 2026</li>
-              </ul>
-            </div>
-
-            <div class="about-group">
-              <h3 class="about-label">Select Outreach</h3>
-              <ul class="about-list">
-                <li>Coding the Cosmos, <i>Co-director </i></li>
-                <li><a href="https://astrobites.org/author/mdodici/">Astrobites</a>, <i>Former author</i></li>
-                <li><a href="https://www.astro.utoronto.ca/astrotours/archive/2026_may/">UofT Astrotours</a>, <i>Former co-director, speaker</i></li>
-              </ul>
+              <div class="about-group is-collapsed">
+                <h3 class="about-label"><button class="about-toggle" type="button"><span class="about-chevron" aria-hidden="true"></span>Select Outreach</button></h3>
+                <ul class="about-list">
+                  <li>Coding the Cosmos, <i>Co-director </i></li>
+                  <li><a href="https://astrobites.org/author/mdodici/">Astrobites</a>, <i>Former author</i></li>
+                  <li><a href="https://www.astro.utoronto.ca/astrotours/archive/2026_may/">UofT Astrotours</a>, <i>Former co-director, speaker</i></li>
+                </ul>
+              </div>
             </div>
           </div>
 
           <p class="lead">
-            In Fall 2026, I'll be applying for postdoctoral positions, looking to continue my
-            theoretical work on dense stellar systems and few-body dynamics. In the meantime,
-            I'd love to chat about research or outreach &mdash; please reach out at
-            mark.dodici [at] astro.utoronto.ca.
+            I'm currently applying for postdoctoral positions, looking to continue my
+            theory work on dense stellar systems and few-body dynamics. 
+            In particular, I'm starting to think a lot about the evolution of 
+            galactic nuclei, aiming to improve our theories
+            alongside a huge amount of incoming data from Rubin, Roman, ELT, and JWST.
+          </p>
+          <p class="lead">
+            I'd love to chat about research or outreach &mdash; email me at
+            mark.a.dodici [at] gmail.com!
           </p>
           <a class="button" target="_blank" href="dodici_cv.pdf">Open CV</a>
         </div>
@@ -300,12 +337,7 @@
           </p>
           <p>
             I've also spent a lot of time thinking about how I communicate
-            science on a broader scale. During my Bachelor's, I won an award for
-            a three-minute, general audience video explaining one of my
-            junior-year independent research projects. I also worked for
-            several years as a podcast and video editor for The Daily
-            Princetonian, developing concision and clarity in my writing and
-            building skills across the pipeline of multimedia production. As a
+            science on a broader scale. As a
             graduate student, I've written for Astrobites, a blog of daily paper
             summaries geared toward undergraduates interested in science; I
             helped develop a series of workshops for high school students,
@@ -313,6 +345,12 @@
             no-experience-necessary talks and activities; and I attended
             ComSciCon-CAN, a Canada-wide workshop for graduate students
             interested in improving their own science communication.
+            During my Bachelor's, I won an award for
+            a three-minute, general audience video explaining one of my
+            junior-year independent research projects. I also worked for
+            several years as a podcast and video editor for The Daily
+            Princetonian, developing concision and clarity in my writing and
+            building skills across the pipeline of multimedia production. 
           </p>
         </div>
 
@@ -377,10 +415,15 @@
         <div class="container">
           <h2>Contact</h2>
           <p>
-            For science or outreach questions, please reach out at
-            mark.dodici [at] astro.utoronto.ca.
+            For science or outreach questions, please reach out to me at
+            mark.a.dodici [at] gmail.com.
           </p>
-          <p class="meta">Last updated: July 2026</p>
+          <p class="meta">
+            Headshot credit:  My good friend <a href="https://dangpham.ca">Dang Pham</a>, 
+            who brought me to an overlook of the <a href="https://en.wikipedia.org/wiki/Continental_Divide_of_the_Americas">Continental Divide</a> near Boulder, CO.
+            Whether the Divide is also pictured is up for debate.
+          </p>
+          <p class="meta">Last updated: Nov 2026</p>
           <p class="meta">© 2026 Mark Dodici</p>
 
         </div>
@@ -408,6 +451,63 @@
       </section>
     </main>
     <script>
+      // Narrow-screen menu: close after picking a section, on an outside
+      // click, or on Escape.
+      (function () {
+        var menu = document.querySelector('.nav-dropdown');
+        if (!menu) return;
+        menu.querySelectorAll('a').forEach(function (link) {
+          link.addEventListener('click', function () {
+            menu.open = false;
+          });
+        });
+        document.addEventListener('click', function (e) {
+          if (menu.open && !menu.contains(e.target)) menu.open = false;
+        });
+        document.addEventListener('keydown', function (e) {
+          if (e.key === 'Escape' && menu.open) {
+            menu.open = false;
+            menu.querySelector('summary').focus();
+          }
+        });
+      })();
+
+      // About subsections: each heading opens/closes its group. When exactly
+      // one of the two top-row groups is closed, .is-staggered lets the two
+      // columns stack independently in two-column view (see CSS).
+      (function () {
+        var grid = document.querySelector('.about-grid');
+        if (!grid) return;
+        var groups = grid.querySelectorAll('.about-group');
+        var topRow = grid.querySelectorAll('.about-col > .about-group:first-child');
+        function sync() {
+          groups.forEach(function (group) {
+            group
+              .querySelector('.about-toggle')
+              .setAttribute('aria-expanded', String(!group.classList.contains('is-collapsed')));
+          });
+          var closed = Array.prototype.filter.call(topRow, function (group) {
+            return group.classList.contains('is-collapsed');
+          }).length;
+          grid.classList.toggle('is-staggered', closed > 0 && closed < topRow.length);
+        }
+        groups.forEach(function (group) {
+          group.querySelector('.about-toggle').addEventListener('click', function () {
+            group.classList.toggle('is-collapsed');
+            sync();
+          });
+        });
+        // The markup's defaults (only Education open) are for narrow screens.
+        // A page that loads in the wide sidebar layout starts with all open.
+        // Load time only: resizing later never opens or closes anything.
+        if (window.matchMedia('(min-width: 1080px)').matches) {
+          groups.forEach(function (group) {
+            group.classList.remove('is-collapsed');
+          });
+        }
+        sync();
+      })();
+
       document.querySelectorAll('.card-expandable').forEach(function (card) {
         function toggle() {
           var isCollapsed = card.classList.contains('card-collapsed');
