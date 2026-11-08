@@ -531,7 +531,7 @@ h3 {
     display: block;
     width: 200px;
     height: 200px;
-    border-radius: 50%;
+    border-radius: 12px; /* same rounded square as .about-photo */
     object-fit: cover;
     margin-top: 8px;
     margin-bottom: 16px;
